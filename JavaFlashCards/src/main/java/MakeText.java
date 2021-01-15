@@ -1,7 +1,7 @@
 import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
-import org.omg.Messaging.SYNC_WITH_TRANSPORT;
+
 
 public class MakeText {
 
@@ -11,8 +11,8 @@ public class MakeText {
 
     public static String send (String text){
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
-        Message.creator(new PhoneNumber("+18568130880"),
-                new PhoneNumber("+18039747013"),
+        Message.creator(new PhoneNumber(System.getenv("SENDTO")),
+                new PhoneNumber(System.getenv("SENDFROM")),
                 text).create();
         return "Message sent";
     }

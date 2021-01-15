@@ -4,9 +4,9 @@ import java.sql.SQLException;
 import com.mysql.cj.jdbc.Driver;
 
 public class ConnectionFactory {
-    public  static final String URL = "jdbc:mysql://localhost:3306/JavaFacts";
-    public  static final String USER = "Toms";
-    public  static final String PASS = "zipcode0";
+    public  static final String URL = System.getenv("MYSQLURL");
+    public  static final String USER = System.getenv("MYSQLUSER");
+    public  static final String PASS = System.getenv("MYSQLPASS");
 
     public static Connection getConnection(){
         try {
